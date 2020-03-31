@@ -28,6 +28,7 @@ def get_signed_body(data: dict, need_version=False) -> str:
 
 
 if __name__ == "__main__":
-  body=input("Enter body to sign: ")
-  signed_body = get_signed_body(body)
+  body = input("Enter body to sign: ")
+  data = json.loads(body)
+  signed_body = get_signed_body(data)
   print(f"Result: {signed_body}")
