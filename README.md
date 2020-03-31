@@ -1,7 +1,7 @@
 # Instagram_SSL_Pinning
 
 
-![IG](https://raw.githubusercontent.com/pouyadarabi/Instagram_SSL_Pinning/master/ig.png)
+![IG](./ig.png)
 
 Bypassing Instagram SSL pinning `ARM and X86` and signing requests to instagram API
 
@@ -15,7 +15,7 @@ Bypassing Instagram SSL pinning `ARM and X86` and signing requests to instagram 
 
 #### Signing requests:
 
-All requests to instagram API must be signed. Signing happens in `com.instagram.api.d.a.a` using the native method `com.instagram.strings.StringBridge.getSignatureString` from lib `resources/lib/x86/libstrings.so`.This script repeats the functionality of the native method and allows you to independently send requests to instagram API.
+All requests to instagram API must be signed. Signing happens in `com.instagram.api.d.a.a` using the native method `com.instagram.strings.StringBridge.getSignatureString` from lib `resources/lib/x86/libstrings.so`. [Script](./request-body-signer.py) repeats the functionality of the native method and allows you to independently send requests to instagram API.
 
 1. Install python3
 2. Run python3 request-body-signer.py
@@ -39,7 +39,8 @@ All requests to instagram API must be signed. Signing happens in `com.instagram.
 - Download and install modified apk suitable for your architecture
 
 
-~ | Modified APK | Version
+~ | File | Version
 --- | --- | ---
-ARM | [Download](https://github.com/pouyadarabi/Instagram_SSL_Pinning/blob/master/arm/com.instagram.android_35.0.0.20.96_minAPI16(arm).apk) | 35.0.0.20.96
-X86 | [Download](https://github.com/pouyadarabi/Instagram_SSL_Pinning/blob/master/x86/com.instagram.android_35.0.0.20.96_minAPI16(x86).apk) | 35.0.0.20.96
+ARM | [Download](./arm/com.instagram.android_35.0.0.20.96_minAPI16(arm).apk) | 35.0.0.20.96
+X86 | [Download](./x86/com.instagram.android_35.0.0.20.96_minAPI16(x86).apk) | 35.0.0.20.96
+Signer | [Download](./request-body-signer.py) | 1.0
