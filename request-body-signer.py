@@ -12,11 +12,14 @@ to instagram API.
 import json
 import hmac
 
+from urllib.parse import quote
+
+
 secret_key = b"fb26667d85c4432ee34e8e69876575a2"
 sig_key_version = 4
 
 
-def _sign(strig: str) -> str:
+def _sign(data: str) -> str:
   signed_data = hmac.digest(secret_key, data.encode("utf-8"), "sha256")
   return "".join(f"{hex(h)[2:]:>02}" for h in signed_data)                                           
 
@@ -24,7 +27,7 @@ def _sign(strig: str) -> str:
 def get_signed_body(data: dict, need_version=False) -> str:
   """Sign body of request to instagram API"""
   data = json.dumps(data, separators=(",", ":"))
-  return f"{_sign(data)}.{data}" + f"&ig_sig_key_version={sig_key_version}" if need_version else ""
+  return f"{_sign(data)}.{quote(data)}" + (f"&ig_sig_key_version={sig_key_version}" if need_version else "")
 
 
 if __name__ == "__main__":
