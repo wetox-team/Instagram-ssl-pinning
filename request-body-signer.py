@@ -9,16 +9,22 @@ method and allows you to independently send requests
 to instagram API.
 """
 
-from typping import Dict
+import json
+import hmac
+
+secret_key = b"fb26667d85c4432ee34e8e69876575a2"
+sig_key_version = 4
 
 
 def _sign(strig: str) -> str:
-  pass  # todo: impl
+  signed_data = hmac.digest(secret_key, data.encode("utf-8"), "sha256")
+  return "".join(f"{hex(h)[2:]:>02}" for h in signed_data)                                           
 
 
-def get_signed_body(data: str, need_version=False) -> str:
+def get_signed_body(data: dict, need_version=False) -> str:
   """Sign body of request to instagram API"""
-  return f"{_sign(data)}.{data}" + "&ig_sig_key_version=4" if need_version else ""
+  data = json.dumps(data, separators=(",", ":"))
+  return f"{_sign(data)}.{data}" + f"&ig_sig_key_version={sig_key_version}" if need_version else ""
 
 
 if __name__ == "__main__":
