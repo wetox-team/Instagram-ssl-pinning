@@ -1,4 +1,4 @@
-# Instagram_SSL_Pinning
+# Instagram SSL pinning
 
 
 ![IG](./ig.png)
