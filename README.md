@@ -15,11 +15,7 @@ Bypassing Instagram SSL pinning `ARM and X86` and signing requests to instagram 
 
 #### Signing requests:
 
-All requests to instagram API must be signed. Signing happens in `com.instagram.api.d.a.a` 
-using the native method `com.instagram.strings.StringBridge.getSignatureString` from 
-lib `resources/lib/x86/libstrings.so`. [Script](./request-body-signer.py) repeats the 
-functionality of the native method and allows you to independently send requests to 
-instagram API.
+All requests to instagram API must be signed. Signing happens in `com.instagram.api.d.a.a` using the native method`com.instagram.strings.StringBridge.getSignatureString` from lib `resources/lib/x86/libstrings.so`. [Script](./request-body-signer.py) repeats the functionality of the native method and allows you to independently send requests to instagram API.
 
 1. Install python3
 2. Run python3 request-body-signer.py
